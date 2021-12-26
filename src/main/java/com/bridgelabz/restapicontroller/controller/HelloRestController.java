@@ -3,6 +3,7 @@ package com.bridgelabz.restapicontroller.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -32,4 +33,9 @@ public class HelloRestController
 	public String hello(@RequestBody User user) {
 		return "Hello " + user.getFirstName() +  user.getLastName();
 	}
+	@PutMapping("/put/{firstName}")
+	public String hello(@PathVariable String firstName,@RequestParam (value = "lastName") String lastName) {
+		return "Hello" +" " + firstName + " "  + lastName;
+		}
+	
 }
